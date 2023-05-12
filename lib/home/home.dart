@@ -11,12 +11,12 @@ class MyWidget extends StatefulWidget {
 class _MyNewWidget extends State<MyWidget> {
   final inputTextFormFieldController = TextEditingController();
   var outputTexTFormFieldController = TextEditingController();
-  Convert? convert;
+  late Convert convert;
 
   convertData() {
     setState(() {
       convert = Convert(inputTextFormFieldController);
-      convert?.convertModelToDto();
+      outputTexTFormFieldController.text = convert.convertModelToDto();
     });
   }
 

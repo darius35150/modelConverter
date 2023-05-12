@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vector_math/vector_math.dart';
 
 import '../constants/constants.dart';
 
@@ -9,11 +10,19 @@ class Convert {
 
   String convertModelToDto(){
 
-      // for(int i = 0; i < inputTextFormFieldController.text.length; i++){
-        String result = inputTextFormFieldController.text.replaceAll(Constants.ID, "").replaceAll(Constants.COLUMN, "").replaceAll(Constants.JSON_REF, "");
-        print(result);
-      // }
+    List list = inputTextFormFieldController.text.trim().split("\n").toList();
+    List newList = [];
+    StringBuffer buffer = StringBuffer();
 
-    return "";
+    for(String string in list) {
+      if(!string.trim().contains(Constants.COLUMN) && !string.trim().contains(Constants.ID) &&
+         !string.trim().contains(Constants.ONE_TO_MANY) && !string.trim().contains(Constants.JSON_REF) &&
+         string.isNotEmpty){
+        newList.add(string.trim());
+      }
+    }
+    buffer.writeAll(newList, "\n");
+
+    return buffer.toString();
   }
 }
