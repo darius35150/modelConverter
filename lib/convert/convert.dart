@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math.dart';
-
 import '../constants/constants.dart';
 
 class Convert {

@@ -20,6 +20,12 @@ class _MyNewWidget extends State<MyWidget> {
     });
   }
 
+  clearData(){
+    setState(() {
+      inputTextFormFieldController.clear();
+      outputTexTFormFieldController.clear();
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -33,9 +39,18 @@ class _MyNewWidget extends State<MyWidget> {
                   border: OutlineInputBorder(),
                   hintText: 'Place model code here'))),
       const SizedBox(height: 4),
-      ElevatedButton(
-        onPressed: convertData,
-        child: const Text('Submit'),
+      Row(
+        children: [
+          ElevatedButton(
+            onPressed: convertData,
+            child: const Text('Submit'),
+          ),
+          const SizedBox(width: 8,),
+          ElevatedButton(
+            onPressed: clearData,
+            child: const Text('Clear'),
+          ),
+        ],
       ),
       Container(
           margin: const EdgeInsets.fromLTRB(0, 75, 0, 0),
