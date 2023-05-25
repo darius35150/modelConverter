@@ -15,8 +15,36 @@ class _MyNewWidget extends State<MyWidget> {
 
   convertData() {
     setState(() {
-      convert = Convert(inputTextFormFieldController);
-      outputTexTFormFieldController.text = convert.convertModelToDto();
+      if(inputTextFormFieldController.text.isEmpty) {
+        showDialog<void>(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Model To Dto Converter'),
+              content: const SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    Text('You must place model text before converting'),
+                  ],
+                ),
+              ),
+              actions: <Widget>[
+                Center(
+                    child: ElevatedButton(
+                      child: const Text('Ok'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )),
+              ],
+            );
+          },
+        );
+      }else{
+        convert = Convert(inputTextFormFieldController);
+        outputTexTFormFieldController.text = convert.convertModelToDto();
+      }
     });
   }
 
@@ -59,7 +87,7 @@ class _MyNewWidget extends State<MyWidget> {
               maxLines: 15,
               controller: outputTexTFormFieldController,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'New Code here')))
+                  border: OutlineInputBorder(), hintText: 'Converted Dto Code shows here')))
     ]);
   }
 }
