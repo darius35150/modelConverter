@@ -32,7 +32,15 @@ class _MyNewWidget extends State<MyWidget> {
               actions: <Widget>[
                 Center(
                     child: ElevatedButton(
-                      child: const Text('Ok'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:const Color.fromARGB(255, 204, 228, 86)
+                      ),
+                      child: const Text('Ok',
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16
+                      ),),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -70,13 +78,30 @@ class _MyNewWidget extends State<MyWidget> {
       Row(
         children: [
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor:const Color.fromARGB(255, 204, 228, 86)
+            ),
             onPressed: convertData,
-            child: const Text('Submit'),
+            child: const Text('Submit',
+            style: TextStyle(
+              color: Colors.black87,
+              fontWeight: FontWeight.bold,
+              fontSize: 16
+            ),),
           ),
           const SizedBox(width: 8,),
           ElevatedButton(
+          
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 204, 228, 86)
+            ),
             onPressed: clearData,
-            child: const Text('Clear'),
+            child: const Text('Clear',
+            style: TextStyle(
+              color: Colors.black87,
+              fontWeight: FontWeight.bold,
+              fontSize: 16
+            ),),
           ),
         ],
       ),

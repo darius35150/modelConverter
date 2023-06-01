@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: darkBlue,
+          useMaterial3: true
         ),
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
