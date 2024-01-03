@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData.dark().copyWith(
+        theme: ThemeData(
           scaffoldBackgroundColor: darkBlue,
           useMaterial3: true
-        ),
+          ),
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
           body: MyWidget(),
